@@ -1,0 +1,20 @@
+try{
+
+            String url="jdbc:mysql://localhost:3306/mydb";
+            String userName="root";
+            String password="@me604700";
+            Connection con = DriverManager.getConnection(url, userName, password);
+
+            String query = "insert into trial values(?,?)";
+            PreparedStatement pstm = con.prepareStatement(query);
+            pstm.setString(1, "newdata");
+            pstm.setInt(2, 123);
+            pstm.executeUpdate();
+
+            System.out.println("data created");
+            
+
+            con.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
